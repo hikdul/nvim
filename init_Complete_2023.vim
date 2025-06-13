@@ -1,11 +1,11 @@
 "lineas primordiales, estas lineas son para indicar en el archivo de vim que
 "use esta configuracion
 "^ con ALT + 94 ^
-"set runtimepath^=~/.vim runtimepath+=~/.vim/after
-"let &packpath=&runtimepath
-"source ~/.vimrc
+set runtimepath^=~/.vim runtimepath+=~/.vim/after
+let &packpath=&runtimepath
+source ~/.vimrc
 "Ahora si a configurar
-"  
+
 " ********************************************************************************************
 "~ Intalamos Plugins con  el manejador de plug-ig, e indicamos donde guardamos nuestros plugin
 " ********************************************************************************************
@@ -20,13 +20,8 @@ Plug 'easymotion/vim-easymotion'
       "nos permite navegar, saltar a otro punto desde nuestro codigo de manera sencilla
 
 "instalamos nerdTree
-Plug 'scrooloose/nerdtree' "este es en si el nerd tree
-Plug 'Xuyuanp/nerdtree-git-plugin' "instalar los plug para el uso del nerdtree 
-Plug 'PhilRunninger/nerdtree-visual-selection' "muestra cierta opciones visuales en la ventanas del nerdtree
-" mas plugs para Nerd tree
-Plug 'jistr/vim-nerdtree-tabs' " para el manejo de pestanas en nerdtree
-Plug 'majutsushi/tagbar' " Para navegar entre pestatas; configurar para que trabajo fluido luego 
-" Read the docs: https://github.com/preservim/tagbar
+Plug 'scrooloose/nerdtree'
+  "este es en si el nerd tree
 
 "agregando el autocompletado
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
@@ -35,76 +30,21 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'vim-airline/vim-airline'
 "el tema de la barra inferior
 Plug 'vim-airline/vim-airline-themes'
-"para ver iconos en mis navegaciones
-Plug 'ryanoasis/vim-devicons'
 
 "mostrar errores
 Plug 'dense-analysis/ale'
 
-" PAra identacion grafica
-Plug 'lukas-reineke/indent-blankline.nvim'
+"para autocerrar etiquetas
+Plug 'alvan/vim-closetag'
 
-" Para mantener los paquetes de vim bootstrap sobre los lenguajes que uso
-Plug 'editor-bootstrap/vim-bootstrap-updater'
+"para ver iconos en mis navegaciones
+Plug 'ryanoasis/vim-devicons'
 
-""~ Snippets for lenguage
+"instalar los plug para el uso del nerdtree 
+Plug 'Xuyuanp/nerdtree-git-plugin'
 
-Plug 'xolox/vim-misc'
-"Plug 'xolox/vim-session'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
-
-" c
-Plug 'vim-scripts/c.vim', {'for': ['c', 'cpp']}
-Plug 'ludwig/split-manpage.vim'
-
-" html
-"" HTML Bundle
-Plug 'hail2u/vim-css3-syntax'
-Plug 'gko/vim-coloresque'
-Plug 'tpope/vim-haml'
-Plug 'mattn/emmet-vim'
-
-" javascript
-"" Javascript Bundle
-Plug 'jelera/vim-javascript-syntax'
-
-" python
-"" Python Bundle
-Plug 'davidhalter/jedi-vim'
-Plug 'raimon49/requirements.txt.vim', {'for': 'requirements'}
-
-" rust
-" Vim racer
-Plug 'racer-rust/vim-racer'
-
-" Rust.vim
-Plug 'rust-lang/rust.vim'
-
-" Async.vim
-Plug 'prabirshrestha/async.vim'
-
-" Vim lsp
-Plug 'prabirshrestha/vim-lsp'
-
-" Asyncomplete.vim
-Plug 'prabirshrestha/asyncomplete.vim'
-
-" Asyncomplete lsp.vim
-Plug 'prabirshrestha/asyncomplete-lsp.vim'
-
-" typescript
-Plug 'leafgarland/typescript-vim'
-Plug 'HerringtonDarkholme/yats.vim'
-
-" manejo de seciones
-Plug 'rmagatti/auto-session'
-
-" Use release branch (recommended)
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
-
-" Or build from source code by using npm
-Plug 'neoclide/coc.nvim', {'branch': 'master', 'do': 'npm ci'}
+"muestra cierta opciones visuales en la ventanas del nerdtree
+Plug 'PhilRunninger/nerdtree-visual-selection'
 
 "######################### End Call PlugIn
 call plug#end()
@@ -113,6 +53,7 @@ call plug#end()
 ""~ Vim-Plug core, lineas rocomendadas de boostrap-vim
 "*****************************************************************************
 
+
 let vimplug_exists=expand('~/.config/nvim/autoload/plug.vim')
 if has('win32')&&!has('win64')
   let curl_exists=expand('C:\Windows\Sysnative\curl.exe')
@@ -120,10 +61,10 @@ else
   let curl_exists=expand('curl')
 endif
 
-let g:vim_bootstrap_langs = "c,html,javascript,python,rust,typescript"
-let g:vim_bootstrap_editor = "nvim"		
 let g:vim_bootstrap_theme = "gruvbox"
 let g:vim_bootstrap_frams = ""
+let g:vim_bootstrap_langs = "c,html,javascript,python,typescript"
+let g:vim_bootstrap_editor = "nvim"		
 
 if !filereadable(vimplug_exists)
   if !executable(curl_exists)
@@ -144,12 +85,21 @@ endif
 ""~ configuracion base / base config
 "*****************************************************************************
 
+
+setnumber 
+    "genera los numeros del costado izq
+set title
+    " Muestra el nombre del archivo en la ventana de la terminal
+set mouse=a 
+    "Permite la integración del mouse (seleccionar texto, mover el cursor)
 set numberwidth=3
     "indica el ancho de los numeros del costado IZQ
+set clipboard=unnamed 
+    "para indicar que mis datois del clipborad ingresen a vim
 syntax enable
     "para habilitar la sintaxis de la linea superior dentro de vim
 syntax on
-    "para habilitar los colores de sintansix  fuera del tema, o los que trae
+    "para habilitar los colores de sintansix  fuera delthema, o los que trae
     "definidos nvim por default
 set showcmd 
     "muertra los comando que se estan usando
@@ -157,6 +107,8 @@ set ruler
     "muestra lo poscicion en la parte inferior derecha linea,caracter
 set cursorline 
     "muestra la linea dek lugar donde se ubica el cursor
+set encoding=utf-8
+    "seteamos la codificacion de archivos
 set showmatch 
     "muestra el parentesis pareja
 set sw=2
@@ -166,6 +118,8 @@ set relativenumber
 	"para arriba y abajo con cero en la ubicacion
 
 set laststatus=2 "para que la barra inferior siempre sea visible
+set noshowmode 
+    "para que no muestre el modo en la barra inferior
 
 set shiftwidth=2
 set tabstop=2
@@ -197,68 +151,6 @@ set ignorecase
 set nohlsearch
   "segun solo resalta las proximas busquedas
 
-"Permite la integración del mouse (seleccionar texto, mover el cursor)
-set mouse=a 
-
-"" Encoding
-set encoding=utf-8
-set fileencoding=utf-8
-set fileencodings=utf-8
-
-"" Fix backspace indent
-set backspace=indent,eol,start
-
-"" Tabs. May be overridden by autocmd rules
-set tabstop=4
-set softtabstop=0
-set shiftwidth=4
-set expandtab
-
-"" Enable hidden buffers
-set hidden
-
-""  indica que debe de reconocer los finales de archivos de estos SO
-set fileformats=unix,dos,mac
-
-" Resalta la linea de trabajo actual  
-autocmd CursorHold * silent call CocActionAsync('highlight')
-
-"" manejo de shell
-if exists('$SHELL')
-    set shell=$SHELL
-else
-    set shell=/bin/sh
-endif
-
-"~: session management
-lua << EOF
-require("auto-session").setup {
-  log_level = "error",
-  auto_session_enabled = true,
-  auto_save_enabled = true,
-  auto_restore_enabled = true,
-  session_dir = vim.fn.stdpath("config") .. "/sessions/"
-}
-EOF
-
-"~: configuracion de la identacion
-lua << EOF
-require("ibl").setup {
-  scope = {
-    enabled = true,       -- <- activa modo "scope"
-    show_start = true,   -- <- no muestra símbolo especial al inicio del bloque
-    show_end = true,     -- <- no muestra símbolo especial al final
-    highlight = { "Function", "Label" },  -- <- puedes cambiar o personalizar colores
-  },
-  indent = {
-    char = "│",           -- <- o usa "|" si prefieres algo más simple
-  },
-  exclude = {
-    filetypes = { "help", "terminal", "dashboard" },
-  }
-}
-EOF
-
 "*****************************************************************************
 ""~ esta configuracion la recomieda la gente de COC el autocompletar. 
 "*****************************************************************************
@@ -283,7 +175,7 @@ endfunction
 
 " Use <c-space> to trigger completion.
 if has('nvim')
-  inoremap <silent><expr> <c-@> coc#refresh()
+  inoremap <silent><expr> <c-space> coc#refresh()
 else
   inoremap <silent><expr> <c-@> coc#refresh()
 endif
@@ -305,7 +197,7 @@ nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
 
 " Use K to show documentation in preview window.
-nnoremap <silent> ; :call <SID>show_documentation()<CR>
+nnoremap <silent> K :call <SID>show_documentation()<CR>
 
 function! s:show_documentation()
   if (index(['vim','help'], &filetype) >= 0)
@@ -316,6 +208,10 @@ function! s:show_documentation()
     execute '!' . &keywordprg . " " . expand('<cword>')
   endif
 endfunction
+
+" Highlight the symbol and its references when holding the cursor.
+autocmd CursorHold * silent call CocActionAsync('highlight')
+
 
 augroup mygroup
   autocmd!
@@ -337,15 +233,14 @@ nmap <leader>qf  <Plug>(coc-fix-current)
 
 " Map function and class text objects
 " NOTE: Requires 'textDocument.documentSymbol' support from the language server.
-"xmap if <Plug>(coc-funcobj-i)
-"omap if <Plug>(coc-funcobj-i)
-"omap if <Plug>(coc-funcobj-i)
-"xmap af <Plug>(coc-funcobj-a)
-"omap af <Plug>(coc-funcobj-a)
-"xmap ic <Plug>(coc-classobj-i)
-"omap ic <Plug>(coc-classobj-i)
-"xmap ac <Plug>(coc-classobj-a)
-"omap ac <Plug>(coc-classobj-a)
+xmap if <Plug>(coc-funcobj-i)
+omap if <Plug>(coc-funcobj-i)
+xmap af <Plug>(coc-funcobj-a)
+omap af <Plug>(coc-funcobj-a)
+xmap ic <Plug>(coc-classobj-i)
+omap ic <Plug>(coc-classobj-i)
+xmap ac <Plug>(coc-classobj-a)
+omap ac <Plug>(coc-classobj-a)
 
 " Remap <C-f> and <C-b> for scroll float windows/popups.
 if has('nvim-0.4.0') || has('patch-8.2.0750')
@@ -376,7 +271,6 @@ command! -nargs=0 OR   :call     CocAction('runCommand', 'editor.action.organize
 " provide custom statusline: lightline.vim, vim-airline.
 set statusline^=%{coc#status()}%{get(b:,'coc_current_function','')}
 
-" TODO: esto lo instalo porque me parecion util. buscar utilidad o quitar
 " Mappings for CoCList
 " Show all diagnostics.
 nnoremap <silent><nowait> <space>a  :<C-u>CocList diagnostics<cr>
@@ -460,7 +354,7 @@ let g:gruvbox_contrast_dark = "medium"
 let g:deoplete#enable_at_startup = 1
 let g:jsx_ext_required = 0
 let g:gruvbox_transparent_bg=1
-let g:gruvbox_number_column="#1e1129"
+let g:gruvbox_number_column="#663A8B"
 let g:gruvbox_italicize_comments = 1
 
 
@@ -479,14 +373,14 @@ let NERDTreeQuitOnOpen=1
     "para cerrar el arbol apenas elija un elemento
 let g:NERDTreeSortOrder=['^__\.py$', '\/$', '*', '\.swp$', '\.bak$', '\~$']
         " Organiza los elementos
-let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$',  '__pycache__']
-        " ignoro elementos con estas extenciones
+let g:NERDTreeIgnore=['\.rbc$', '\~$', '\.pyc$', '\.db$', '\.sqlite$', '__pycache__']
+        " ignaro elementos con estas extenciones
 let g:NERDTreeChDirMode=2
         "tipo de direcctorio
 let g:NERDTreeShowBookmarks=1
         "para mostrar los marcadores en caso de que existan
 let g:nerdtree_tabs_focus_on_files=1
-        " Cuando abres un archivo, cambia el enfoque de vuelta al buffer.
+        " ??
 let g:NERDTreeMapOpenInTabSilent = '<RightMouse>'
         "abre elementos con click derecho
 let g:NERDTreeWinSize = 50
@@ -523,14 +417,16 @@ let g:NERDTreeGitStatusShowIgnored = 1
 
 " ### === ### vim-airline
 
-let g:airline_theme = 'minimalist'
+let g:airline_theme = 'powerlineish'
 let g:airline#extensions#branch#enabled = 1
 let g:airline#extensions#ale#enabled = 1
 let g:airline#extensions#tabline#enabled = 1
 let g:airline#extensions#tagbar#enabled = 1
 let g:airline_skip_empty_sections = 1
+
 let g:airline#extensions#virtualenv#enabled = 1
 
+let g:airline_theme='minimalist'
 
 if !exists('g:airline_symbols')
   let g:airline_symbols = {}
@@ -579,6 +475,13 @@ let g:ale_linters = {}
 let g:airline#extensions#virtualenv#enabled = 1
 
 
+" ### === ### IndentLine
+  let g:indentLine_enabled = 1
+  let g:indentLine_concealcursor = 0
+  let g:indentLine_char = '|' "'┆'
+  let g:indentLine_faster = 1
+
+
 "*****************************************************************************
 "" Custom configs for lenguages
 "*****************************************************************************
@@ -616,7 +519,7 @@ augroup END
 let g:jedi#popup_on_dot = 0
 let g:jedi#goto_assignments_command = "<leader>g"
 let g:jedi#goto_definitions_command = "<leader>d"
-let g:jedi#documentation_command = ";"
+let g:jedi#documentation_command = "K"
 let g:jedi#usages_command = "<leader>n"
 let g:jedi#rename_command = "<leader>r"
 let g:jedi#show_call_signatures = "0"
@@ -641,5 +544,8 @@ let g:yats_host_keyword = 1
 " typescript
 let g:yats_host_keyword = 1
 
+"configuracion de mi gsiano/vmux-clipboard, el plug del portapales
+map <silent> <leader>y :WriteToVmuxClipboard<cr>
+map <silent> <leader>p :ReadFromVmuxClipboard<cr>
 
 
