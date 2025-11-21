@@ -12,3 +12,10 @@ vim.opt.shiftwidth = 4 -- similar a la anterior
 vim.opt.clipboard = "unnamedplus" -- sincroniza el portapapeles del SO con Nvim
 vim.opt.swapfile = false -- desactiva la copia del texto de manera temporal. se quita para evitar subirlos al github
 
+
+-- ###########################
+-- Bufferline
+-- ###########################
+
+vim.opt.termguicolors = true
+
