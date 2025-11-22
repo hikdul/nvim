@@ -34,4 +34,13 @@ require("config/keymaps")
 
 --require("config/backup")
 
+-- ###########################
+-- Autocargado de parses para cuando nvim se actualize 
+-- ###########################
 
+vim.api.nvim_create_autocmd("User", {
+    pattern = "LazyDone",
+    callback = function()
+        vim.cmd("TSUpdate")
+    end,
+})
