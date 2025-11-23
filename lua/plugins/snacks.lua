@@ -15,38 +15,116 @@ return {
 		-- your configuration comes here
 		-- or leave it empty to use the default settings
 		-- refer to the configuration section below
-		picker = { enabled = true },
+		picker = {
+			enabled = true,
+			sources = {
+				explorer = {
+					auto_close = true,
+					jump = { close = true },
+
+					-- Panel a la derecha
+					layout = {
+						layout = {
+							position = "right",
+							width = 40,
+							border = "rounded",
+						},
+					},
+
+					-- Íconos (para carpetas & Git)
+					icons = {
+						folder_closed = "",
+						folder_open = "",
+						folder_empty = "󰜌",
+
+						git = {
+							added = " ",
+							modified = " ",
+							deleted = " ",
+						},
+					},
+
+					-- 🎨 Colores estilo Gruvbox
+					highlights = {
+						File       = { fg = "#ebdbb2" },  -- fg normal Gruvbox
+						Folder     = { fg = "#83a598" },  -- blue
+						FolderIcon = { fg = "#83a598" },  -- blue
+						Selected   = { fg = "#282828", bg = "#fabd2f" }, -- selección amarillo
+						GitAdded   = { fg = "#b8bb26" },
+						GitDeleted = { fg = "#fb4934" },
+						GitChanged = { fg = "#fe8019" },
+					},
+
+					win = {
+						list = {
+							border = "rounded",
+							style = "minimal",
+						},
+					},
+				},
+			},
+		},
+
 		explorer = { enabled = true },
-		bigfile = { enabled = false },
+		-- animaciones
+
+		scroll = {
+			enabled = true,
+			animate = {
+				duration = { step = 10, total = 100 },
+				easing = "linear",
+			},
+			animate_repeat = {
+				delay = 50,
+				duration = { step = 3, total = 20 },
+				easing = "linear",
+			},
+		},
+		-- otro elemento
+		bigfile = {
+			enabled = true,         -- activar este módulo
+			size = 1024 * 1024,     -- umbral: qué tan grande tiene que ser el archivo (ej: 1 MB)
+			notify = true,          -- avisar cuando se detecta un big file
+			setup = function(ctx)
+				-- `ctx.buf` es el buffer del archivo grande
+				-- Aquí decides qué desactivar:
+				vim.cmd("syntax clear")
+				vim.opt_local.syntax = "OFF"
+				-- si tienes treesitter, puedes detenerlo:
+				if vim.treesitter then
+					vim.treesitter.stop(ctx.buf)
+				end
+				-- puedes agregar más lógicas según lo necesites
+			end,
+		},
 		dashboard = { enabled = false },
 		indent = { enabled = false },
 		input = { enabled = false },
 		notifier = { enabled = false },
 		quickfile = { enabled = false },
 		scope = { enabled = false },
-		scroll = { enabled = false },
 		statuscolumn = { enabled = false },
 		words = { enabled = false },
 	},
 	keys ={
 		-- Top Pickers & Explorer
 		{ "<leader><space>", 
-			function() Snacks.picker.smart() end, 
-			desc = "Smart Find Files" 
-		},
-		{ "<leader>bf", 
-			function() Snacks.picker.buffers() end, 
-			desc = "Buffers" 
-		},
-		{ "<leader>/", 
-			function() Snacks.picker.grep() end,
-			desc = "busqueda de palabras en documentos" 
+		function() Snacks.picker.smart() end, 
+		desc = "Smart Find Files" 
+	},
+	{ "<leader>bf", 
+	function() Snacks.picker.buffers() end, 
+	desc = "Buffers" 
+},
+{ "<leader>/", 
+function() Snacks.picker.grep() end,
+desc = "busqueda de palabras en documentos" 
 		},
 		{ "<leader>nt", 
-			function() Snacks.explorer() end, 
-			desc = "File Explorer" 
-		},
-		-- other plug
- 
-	}
+		function() Snacks.explorer() end, 
+		desc = "File Explorer" 
+	},
+	-- other plug
+
+}
 }
