@@ -28,11 +28,6 @@ require("config/options")
 
 require("config/keymaps")
 
--- ###########################
--- BACKUP 
--- ###########################
-
---require("config/backup")
 
 -- ###########################
 -- Autocargado de parses para cuando nvim se actualize 

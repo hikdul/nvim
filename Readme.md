@@ -15,3 +15,9 @@ Configuraccion personal para nvim realizada con el objetivo de usar este editor 
  * CSharp
  * Rust
  * JavaScrip, TypeScript, React
+
+5. Ver documeentacion de los LSP para ver si puedo hacer que me trabajen me manera mas comoda.
+
+6. Configurar los diagnosticos para que mueestren simbolos y elementos que me permitan trabajar de manera mas comoda.
+
+7. configurar el autocompletado de saghen

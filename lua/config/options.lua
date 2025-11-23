@@ -19,3 +19,10 @@ vim.opt.swapfile = false -- desactiva la copia del texto de manera temporal. se 
 
 vim.opt.termguicolors = true
 
+-- ###########################
+-- Agrega el texto virtual que indica errores y otros
+-- ###########################
+
+vim.diagnostic.config({
+	vitual_text= true
+})
