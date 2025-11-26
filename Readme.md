@@ -1,14 +1,5 @@
 ![Neovim logo](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Neovim-logo.svg/2560px-Neovim-logo.svg.png "Neovim logo")
 
----
-
-## Update
-
-instalar los siguiente paquetes
-
-* omnisharp    
-* omnisharp-mono
----
 
 # Neovim
 
