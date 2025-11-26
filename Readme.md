@@ -1,5 +1,15 @@
 ![Neovim logo](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Neovim-logo.svg/2560px-Neovim-logo.svg.png "Neovim logo")
 
+---
+
+## Update
+
+instalar los siguiente paquetes
+
+* omnisharp    
+* omnisharp-mono
+---
+
 # Neovim
 
 esta es la configuracion general; se debe de tener en cuenta que con `:Mazon` se debe de instalar los siguientes elementos para que todo corra perfetamente
@@ -14,6 +24,8 @@ Installed
     ◍ lua-language-server
     ◍ nginx-config-formatter
     ◍ nginx-language-server
+    ◍ omnisharp
+    ◍ omnisharp-mono
     ◍ postgres-language-server
     ◍ prettier
     ◍ rust-analyzer

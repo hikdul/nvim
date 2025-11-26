@@ -6,6 +6,7 @@
 return {
 	"neovim/nvim-lspconfig",
 	config = function()
+  -- 🟦 Instalar LSPs automáticamente (tu código)
 		vim.lsp.enable({
 			"ts_ls",
 			"csharp_ls",

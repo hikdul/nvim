@@ -49,11 +49,33 @@ return {
 
 	 -- (Default) Only show the documentation popup when manually triggered
 	 completion = { documentation = { auto_show = true } },
+	 -- 👇 HABILITA tus snippets locales
+	 load_vscode = {
+		 paths = { vim.fn.stdpath("config") .. "/snippets" },
+	 },
+
+	 -- Asocia extensiones de snippets a lenguajes
+	 extended_filetypes = {
+	--	 cs = { "cs" },   -- ← Esto activa tus cs.json en archivos .cs
+	 },
 
 	 -- Default list of enabled providers defined so that you can extend it
 	 -- elsewhere in your config, without redefining it, due to `opts_extend`
 	 sources = {
 		 default = { 'lsp', 'path', 'snippets', 'buffer' },
+		 providers = {
+			 snippets = {
+				 opts = {
+					 friendly_snippets = true, -- default
+					 extended_filetypes = {
+						 markdown = { 'jekyll' },
+						 sh = { 'shelldoc' },
+						 php = { 'phpdoc' },
+						 cpp = { 'unreal' },
+					 }
+				 }
+			 }
+		 }
 	 },
 
 	 -- (Default) Rust fuzzy matcher for typo resistance and significantly better performance
@@ -61,7 +83,7 @@ return {
 	 -- when the Rust fuzzy matcher is not available, by using `implementation = "prefer_rust"`
 	 --
 	 -- See the fuzzy documentation for more information
-	 fuzzy = { implementation = "prefer_rust_with_warning" }
+	 fuzzy = { implementation = "prefer_rust_with_warning" },
  },
  opts_extend = { "sources.default" }
 }

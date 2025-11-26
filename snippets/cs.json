@@ -1,0 +1,14 @@
+
+{
+  "xml-doc": {
+    "prefix": "///",
+    "body": [
+      "/// <summary>",
+      "/// $1",
+      "/// </summary>",
+      "${2:/// <param name=\"param\">Description</param>}",
+      "${3}"
+    ],
+    "description": "XML documentation block"
+  }
+}

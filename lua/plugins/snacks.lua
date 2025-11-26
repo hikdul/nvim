@@ -107,24 +107,68 @@ return {
 		words = { enabled = false },
 	},
 	keys ={
-		-- Top Pickers & Explorer
-		{ "<leader><space>", 
-		function() Snacks.picker.smart() end, 
-		desc = "Smart Find Files" 
-	},
-	{ "<leader>bf", 
-	function() Snacks.picker.buffers() end, 
-	desc = "Buffers" 
-},
-{ "<leader>/", 
-function() Snacks.picker.grep() end,
-desc = "busqueda de palabras en documentos" 
+	-- 🔍 Smart Picker
+		{
+			"<leader><space>",
+			function() Snacks.picker.smart() end,
+			desc = "Smart Find Files",
 		},
-		{ "<leader>nt", 
-		function() Snacks.explorer() end, 
-		desc = "File Explorer" 
-	},
-	-- other plug
 
-}
+		-- 🧩 Buffers
+		{
+			"<leader>bf",
+			function() Snacks.picker.buffers() end,
+			desc = "Buffers",
+		},
+
+		-- 🔎 Grep
+		{
+			"<leader>/",
+			function() Snacks.picker.grep() end,
+			desc = "Buscar texto",
+		},
+
+		-- 📁 Explorer
+		{
+			"<leader>nt",
+			function() Snacks.explorer() end,
+			desc = "File Explorer",
+		},
+
+		-- -----------------------------------------------
+		-- 🚀 Navegación LSP usando Snacks Pickers
+		-- -----------------------------------------------
+		{
+			"gd",
+			function() Snacks.picker.lsp_definitions() end,
+			desc = "Go to Definition (Snacks)",
+		},
+
+		{
+			"gr",
+			function() Snacks.picker.lsp_references() end,
+			desc = "LSP References (Snacks)",
+		},
+
+		{
+			"gi",
+			function() Snacks.picker.lsp_implementations() end,
+			desc = "LSP Implementations (Snacks)",
+		},
+
+		-- Hover normal del LSP
+		{
+			"K",
+			function() vim.lsp.buf.hover() end,
+			desc = "LSP Hover",
+		},
+
+		-- Signature Help
+		{
+			"<C-k>",
+			function() vim.lsp.buf.signature_help() end,
+			desc = "Signature Help",
+		},
+
+	} --end KEy's
 }
