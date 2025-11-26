@@ -107,7 +107,7 @@ return {
 		words = { enabled = false },
 	},
 	keys ={
-	-- 🔍 Smart Picker
+		-- 🔍 Smart Picker
 		{
 			"<leader><space>",
 			function() Snacks.picker.smart() end,
