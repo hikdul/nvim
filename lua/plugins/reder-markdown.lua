@@ -1,6 +1,6 @@
 -- ##############################################################################################
--- Para tener los markdown con mejor visual
--- TODO: Aun no se ha configurado, aca la documentacion: https://github.com/MeanderingProgrammer/render-markdown.nvim
+--  Para tener los markdown agradable de trabajar
+--  aca la documentacion: https://github.com/MeanderingProgrammer/render-markdown.nvim
 -- ##############################################################################################
 
 return {
