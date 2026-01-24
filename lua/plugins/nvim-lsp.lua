@@ -8,7 +8,6 @@ return {
 	config = function()
 		vim.lsp.enable({
 			"emmet_ls",
-			"omnisharp",
 			"rust_analyzer",
 			"ts_ls",
 			"cssls",

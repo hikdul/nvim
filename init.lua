@@ -9,6 +9,8 @@
 vim.g.mapleader = " "
 vim.g.maplocalleader = "\\"
 
+-- Path to use dotnet
+vim.env.PATH = vim.env.PATH .. ':/usr/bin'
 
 -- ###########################
 -- PLUGS 
