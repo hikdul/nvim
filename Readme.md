@@ -1,5 +1,5 @@
-![Neovim logo](https://upload.wikimedia.org/wikipedia/commons/thumb/4/4f/Neovim-logo.svg/2560px-Neovim-logo.svg.png "Neovim logo")
 
+![neovimLogo](https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTMB35K_SChpQXHxzxUKwAhEV47MYaaDVxqrg&s)
 
 
 # Neovim
